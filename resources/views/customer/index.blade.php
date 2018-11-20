@@ -28,7 +28,7 @@
                                     <th>No Telp</th>
                                     <th>Alamat</th>
                                     <th>Email</th>
-                                    <th>Aksi</th>
+                                    <th colspan="2">Aksi</th> <!-- MODIFIKASI INI DENGAN MENAMBAHKAN COLSPAN -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,6 +46,17 @@
                                             <button class="btn btn-danger btn-sm">Hapus</button>
                                         </form>
                                     </td>
+
+                                    <!-- [... TAMBAHKAN FORM INI ...] -->
+                                    <!-- KARENA YANG DIBUTUHKAN METHOD POST MAKA KITA MEMASUKKANNYA KEDALAM FORM -->
+                                    <td>
+                                        <form action="{{ route('invoice.store') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="customer_id" value="{{ $customer->id }}" class="form-control">
+                                            <button class="btn btn-primary btn-sm">Buat Invoice</button>
+                                        </form>
+                                    </td>
+                                    <!-- [... TAMBAHKAN FORM INI ...] -->
                                 </tr>
                                 @empty
                                 <tr>
